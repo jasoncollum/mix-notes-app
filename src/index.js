@@ -1,25 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import NotesList from './components/notes/NotesList'
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './components/App';
+
 import './index.css';
 
-class Home extends Component {
-    notesFromAPI = [
-        { id: 1, title: "Gorgeous", version: 2, changes: "vocal up 1db", comments: "Singer wants to be louder - I think it's a bad idea, but it's their song." }
-    ]
-
-    state = {
-        notes: this.notesFromAPI
-    }
-
-    render() {
-        return (
-            <div className="main-container">
-                <h1>Mix Notes</h1>
-                <NotesList notes={this.state.notes} />
-            </div>
-        )
-    }
-}
-
-ReactDOM.render(<Home />, document.getElementById('root'));
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>
+    , document.getElementById('root')
+)

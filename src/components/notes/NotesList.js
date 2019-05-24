@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import NoteForm from './NoteForm';
 
 
 class NotesList extends Component {
     render() {
         return (
             <div>
-                <h3>Click On A Mix Version To View Notes</h3>
+                <h4>Click On A Mix Version To View Notes</h4>
                 <hr />
                 {
                     this.props.notes.map(note =>
