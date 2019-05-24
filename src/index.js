@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import NotesList from './components/notes/NotesList'
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class Home extends Component {
+    notesFromAPI = [
+        { id: 1, title: "Gorgeous", version: 2, changes: "vocal up 1db", comments: "Singer wants to be louder - I think it's a bad idea, but it's their song." }
+    ]
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    state = {
+        notes: this.notesFromAPI
+    }
+
+    render() {
+        return (
+            <div className="main-container">
+                <h1>Mix Notes</h1>
+                <NotesList notes={this.state.notes} />
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<Home />, document.getElementById('root'));
